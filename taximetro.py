@@ -1,5 +1,14 @@
 import time #con esto importo la funcionalidad/libreria de python que me permite trabajar con el tiempo
 
+import logging
+
+logging.basicConfig(
+    filename="taximeter.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+
 def calculate_fare(seconds_stopped, seconds_moving): # remember to keep identation
     """
     calcular la tarifa total en euros. 
@@ -7,7 +16,9 @@ def calculate_fare(seconds_stopped, seconds_moving): # remember to keep identati
     - Moving 0.05 €/s
     """
     fare = seconds_stopped * 0.02 + seconds_moving * 0.05 #esto calcula el precio total
-    print (f"Este es el total: {fare}")
+    logging.info(
+        f"Fare calculated: €{fare:.2f}"
+     )
     return fare
 
 def taximeter():
@@ -29,9 +40,13 @@ def taximeter():
 
         if command == "start":
             if trip_active:
+                logging.warning(
+                    "Attempt to start while trip already active."
+                )    
                 print("Error: A trip is already in progress.")
                 continue
             trip_active = True
+            logging.info("Trip started.")
             start_time = time.time()
             stopped_time = 0
             moving_time = 0
@@ -79,7 +94,7 @@ def taximeter():
             state = None
 
         elif command == "exit":
-            print ("Exiting the program. Goodbye!")
+            logging.info("Program terminated.")
             break
 
         else:
