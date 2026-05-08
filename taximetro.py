@@ -1,6 +1,6 @@
-import time #con esto importo la funcionalidad/libreria de python que me permite trabajar con el tiempo
+import time #con esto importo el modulo de tiempo de python que me permite trabajar con el tiempo
 
-import logging
+import logging #con esto importo el modulo de logs que me permite crear los log
 
 logging.basicConfig(
     filename="taximeter.log",
@@ -56,9 +56,10 @@ def taximeter():
 
         elif command in ("stop", "move"):
             if not trip_active:
-                print("Error: No active trip. Please start first.")
+                logging.warning("Error: No active trip. Please start a trip first.")
+                print("Error: please start a trip first.") #este print lo coloque porque no daba mensaje si colocaba la opcion "move" de inicio, sin viaje iniciado. 
+            # en la siguiente linea se calcula el tiempo del estado anterior.
                 continue
-            # en la siguiente linea se calcula el tiempo del estado anterior 
             duration = time.time() - state_start_time
             if state == 'stopped':
                 stopped_time += duration # += forma corta de decir // stopped_time = stopped_time + duration
