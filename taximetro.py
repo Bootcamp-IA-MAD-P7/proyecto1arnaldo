@@ -15,11 +15,21 @@ def calculate_fare(seconds_stopped, seconds_moving): # remember to keep identati
     - Stopped: 0.02 €/s
     - Moving 0.05 €/s
     """
-    fare = seconds_stopped * 0.02 + seconds_moving * 0.05 #esto calcula el precio total
+    fare = seconds_stopped * 0.02 + seconds_moving * 0.05 #esto calcula el precio total es la funcion principal de mi codigo
     logging.info(
         f"Fare calculated: €{fare:.2f}"
      )
     return fare
+
+def save_trip(stopped_time, moving_time, total_fare): # Guarda el resumen del viaje en un archivo de texto.
+
+    with open("trip_history.txt", "a") as file:
+
+        file.write("\n--- Trip Summary ---\n")
+        file.write(f"Stopped time: {stopped_time:.1f} seconds\n")
+        file.write(f"Moving time: {moving_time:.1f} seconds\n")
+        file.write(f"Total fare: €{total_fare:.2f}\n")
+        file.write("------------------------\n")
 
 def taximeter():
     """
@@ -35,7 +45,7 @@ def taximeter():
     state = None # 'stopped' o 'moving'
     state_start_time = 0
 
-    while True: #preguntar Alexandra, IA indica que puede ser command = input(" ").strip().lower() sin el >, es decir el > solo ¿es para visualmente identificar donde se debe escribir? ¿sin significado logico? solo visual?
+    while True: 
         command = input("> ").strip().lower() #esto indica que se debe escribir algo input("") sin espacios .strip() y en minusculas .lower()
 
         if command == "start":
@@ -85,6 +95,7 @@ def taximeter():
             #calcula la tarifa total y muestra el resumen del viaje
 
             total_fare = calculate_fare(stopped_time, moving_time)
+            save_trip(stopped_time, moving_time, total_fare)
             print(f"\n--- Trip Summary ---") # porque uso el "f" sino voy a incluir una variable aqui? IA indica que no es necesario
             print(f"Stopped time: {stopped_time:.1f} seconds") #.1f formatea numeros decimales ejemplo 12.3456 > 12.3 depues de usar el .1f
             print(f"Moving time: {moving_time:.1f} seconds")
@@ -95,6 +106,11 @@ def taximeter():
             state = None
 
         elif command == "exit":
+            if trip_active:
+                print("Error: Finish the current trip before exiting.")
+                logging.warning("Attempt to exit while trip is active") # aqui agregue que no se pueda usar "exit" si hay viaje en curso. Y me genere un log. 
+                continue
+
             logging.info("Program terminated.")
             break
 

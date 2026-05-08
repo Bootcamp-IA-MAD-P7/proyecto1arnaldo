@@ -1,0 +1,6 @@
+
+--- Trip Summary ---
+Stopped time: 20.3 seconds
+Moving time: 11.5 seconds
+Total fare: €0.98
+------------------------
