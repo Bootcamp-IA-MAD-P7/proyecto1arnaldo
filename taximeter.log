@@ -62,3 +62,16 @@
 2026-05-08 15:29:07,869 - WARNING - Attempt to start while trip already active.
 2026-05-08 15:29:21,409 - INFO - Fare calculated: €0.98
 2026-05-08 15:29:27,567 - INFO - Program terminated.
+2026-05-11 10:12:08,199 - INFO - Trip started.
+2026-05-11 10:12:14,230 - INFO - Fare calculated: €0.19
+2026-05-11 10:12:25,999 - INFO - Trip started.
+2026-05-11 10:12:30,521 - INFO - Fare calculated: €0.23
+2026-05-11 10:19:51,554 - INFO - Program terminated.
+2026-05-11 10:20:15,021 - INFO - Trip started.
+2026-05-11 10:20:24,579 - INFO - Fare calculated: €0.59
+2026-05-11 10:46:42,910 - INFO - Program terminated.
+2026-05-11 10:49:33,132 - INFO - Program terminated.
+2026-05-11 11:49:04,412 - INFO - Trip started.
+2026-05-11 11:49:07,965 - WARNING - Attempt to start while trip already active.
+2026-05-11 11:49:19,328 - INFO - Fare calculated: €0.68
+2026-05-11 11:49:28,383 - INFO - Program terminated.

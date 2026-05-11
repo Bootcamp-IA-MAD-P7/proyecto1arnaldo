@@ -4,3 +4,27 @@ Stopped time: 20.3 seconds
 Moving time: 11.5 seconds
 Total fare: €0.98
 ------------------------
+
+--- Trip Summary ---
+Stopped time: 3.6 seconds
+Moving time: 2.5 seconds
+Total fare: €0.19
+------------------------
+
+--- Trip Summary ---
+Stopped time: 2.5 seconds
+Moving time: 2.0 seconds
+Total fare: €0.23
+------------------------
+
+--- Trip Summary ---
+Stopped time: 6.1 seconds
+Moving time: 3.4 seconds
+Total fare: €0.59
+------------------------
+
+--- Trip Summary ---
+Stopped time: 9.7 seconds
+Moving time: 5.2 seconds
+Total fare: €0.68
+------------------------
